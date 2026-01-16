@@ -1,190 +1,279 @@
+/* 기본 변수 설정 (라이트 모드) */
 :root {
-    --point: #1f3a5f;   /* 포인트 색상 (변경 가능) */
-    --bg: #ffffff;
-    --text: #111111;
-    --border: #e5e5e5;
+    --bg-color: #F5F7FA;
+    --card-bg: #FFFFFF;
+    --text-main: #111111;
+    --text-sub: #666666;
+    --point-color: #111111;
+    --border-color: #EEEEEE;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --radius: 24px;
 }
 
-html {
-    scroll-behavior: smooth;
+.profile-badges {
+    margin-bottom: 20px; /* 아래 텍스트와 간격 */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* 전공 뱃지 색상 (신뢰감의 블루) */
+.badge.major {
+    background-color: #E3F2FD; /* 연한 파랑 배경 */
+    color: #1565C0;            /* 진한 파랑 글씨 */
+}
+
+/* 다크 모드 변수 */
 body.dark {
-    --bg: #121212;
-    --text: #f0f0f0;
-    --card: #1e1e1e;
+    --bg-color: #121212;
+    --card-bg: #1E1E1E;
+    --text-main: #F5F5F5;
+    --text-sub: #AAAAAA;
+    --point-color: #FFFFFF;
+    --border-color: #333333;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 다크모드일 때 뱃지 색상 변경 */
+body.dark .badge.major {
+    background-color: #1E3A8A; /* 어두운 파랑 배경 */
+    color: #93C5FD;            /* 밝은 파랑 글씨 */
+}
+
+/* 초기화 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: Arial, sans-serif;
-
-    /* 읽기 좋은 기본값 */
-    font-size: 18px;
-    line-height: 1.9;
-    letter-spacing: 0.01em;
-}
-
-h1 {
-    font-size: 36px;
-    margin-bottom: 16px;
-}
-
-h2 {
-    font-size: 26px;
-    margin-bottom: 32px;
-    color: var(--point);
-}
-
-p {
-    margin-bottom: 24px;
-}
-
-.goal-text {
-    font-size: 20px;
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* 네비게이션 */
 .nav {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
 
-    background-color: #ffffff;
-    border-bottom: 1px solid var(--border);
+body.dark .nav {
+    background-color: rgba(30, 30, 30, 0.8);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
 
+.nav-container {
+    max-width: 900px; /* 그리드 배치를 위해 폭을 조금 더 넓힘 */
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 70px;
     display: flex;
-    justify-content: center;
-    gap: 32px;
-
-    padding: 20px 0;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.nav a {
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a {
     text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--text);
-
-    position: relative;
-    padding-bottom: 6px;
+    color: var(--text-sub);
+    font-weight: 600;
+    transition: color 0.2s;
 }
 
-.nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
-    width: 0;
-    height: 2px;
-    background-color: var(--point);
-
-    transition: width 0.2s ease;
+.nav-links a:hover {
+    color: var(--point-color);
 }
 
-.nav a:hover::after {
-    width: 100%;
-}
-
-.nav button {
+.dark-mode-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
     cursor: pointer;
 }
 
-/* 컨테이너 */
+/* ✨ 메인 레이아웃 (GRID 적용) ✨ */
 .container {
-    max-width: 760px;
-    margin: 80px auto;
-    padding: 0 32px;
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 24px;
+    
+    /* 여기서 그리드가 시작됩니다 */
+    display: grid;
+    
+    /* 1fr 1fr : 화면을 정확히 반반(50% 50%) 나눔 */
+    grid-template-columns: 1fr 1fr;
+    
+    /* 카드 사이의 간격 */
+    gap: 24px;
 }
 
-/* 카드 */
+/* 카드 공통 스타일 */
 .card {
-    background-color: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-
-    /* 핵심: 카드 내부 여백 */
-    padding: 48px;
-
-    /* 카드 간 간격 */
-    margin-bottom: 48px;
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
 }
 
-/* 소개 */
-.intro {
-    text-align: center;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.profile-image {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
+/* ✨ 그리드 배치 설정 (중요!) ✨ */
 
-.toggle-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-}
-
-/* 숨김 */
-.hidden {
-    display: none;
-}
-
-/* 관심사 */
-.interest-list {
+/* 1. 왼쪽 자기소개 카드 */
+.intro-card {
+    text-align: center; /* 가운데 정렬 */
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center; /* 내용 수직 중앙 정렬 */
 }
 
-.interest-tag {
-    border: 1px solid var(--point);
-    color: var(--point);
+/* 2. 오른쪽 경험 카드 */
+.experience-card {
+    text-align: left; /* 왼쪽 정렬 (사진처럼) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-    padding: 16px 28px;
-    border-radius: 999px;
+/* 경험 카드 내부 스타일 (Education 사진 스타일 유지) */
+.section-header-simple {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.section-header-simple .header-icon { font-size: 28px; }
+.section-header-simple h2 { 
+    font-size: 28px; 
+    font-weight: 800; 
+    color: var(--text-main); 
+    margin: 0;
+}
+
+.list-item { margin-bottom: 24px; }
+.list-item:last-child { margin-bottom: 0; }
+
+.item-title {
     font-size: 18px;
-
-    transition: all 0.2s ease;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 4px;
 }
 
-.interest-tag:hover {
-    background-color: var(--point);
-    color: #ffffff;
+.item-date {
+    font-size: 14px;
+    color: #888888; /* 회색 날짜 */
+    margin-bottom: 4px;
+    font-weight: 500;
 }
 
+.item-desc {
+    font-size: 14px;
+    color: var(--text-sub);
+}
 
-/* 모바일 */
-@media (max-width: 480px) {
+/* 2. 관심사 & 목표 섹션: 설정 안 해도 자동으로 1칸씩 차지함 */
+/* (왼쪽에 관심사, 오른쪽에 목표가 배치됨) */
 
-    body {
-        font-size: 16px;
-    }
+/* 3. 연락처 섹션: 다시 2칸을 모두 차지하게 */
+#contact {
+    grid-column: span 2;
+}
 
-    .card {
-        padding: 32px;
-        margin-bottom: 36px;
-    }
+/* 섹션 내부 스타일들 (이전과 동일하거나 미세 조정) */
+.profile-image-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #ddd;
+}
+.profile-image { width: 100%; height: 100%; object-fit: cover; }
 
-    h1 {
-        font-size: 28px;
-    }
+h1 { font-size: 28px; margin-bottom: 8px; }
+.subtitle { color: var(--text-sub); margin-bottom: 24px; }
+.toggle-btn {
+    background: none; border: 1px solid var(--border-color);
+    padding: 8px 20px; border-radius: 50px; cursor: pointer;
+    color: var(--text-sub);
+}
+.detail-text {
+    margin-top: 16px; padding: 16px;
+    background-color: var(--bg-color); border-radius: 12px;
+    font-size: 14px; color: var(--text-sub);
+}
+.hidden { display: none; }
 
-    h2 {
-        font-size: 22px;
-    }
+/* 헤더 스타일 */
+.card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+h2 { font-size: 20px; color: var(--point-color); }
 
-    .nav {
-        gap: 20px;
-        padding: 16px 0;
-    }
+/* 관심사 리스트 (내부도 그리드로 깔끔하게 정렬) */
+.interest-list {
+    display: grid;
+    /* 카드가 좁아지면 알아서 줄바꿈 처리 */
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 12px;
+}
 
-    .nav a {
-        font-size: 16px;
-    }
+.interest-item {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 16px;
+    background-color: var(--bg-color);
+    border-radius: 16px;
+    font-weight: 600;
+}
+
+/* 목표 */
+.goal-desc { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.progress-bar { width: 100%; height: 8px; background: #ddd; border-radius: 4px; }
+.progress-fill { width: 5%; height: 100%; background: var(--point-color); border-radius: 4px; }
+
+/* 연락처 */
+.contact-links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;}
+.contact-item {
+    padding: 12px 24px;
+    background-color: var(--bg-color);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.footer { text-align: center; padding: 40px 0; color: var(--text-sub); font-size: 14px; }
+
+/* 📱 모바일 반응형 처리 */
+@media (max-width: 768px) {
+    /* 모바일에서는 메인 컨테이너가 1줄로 바뀌므로
+       별도의 설정 없이 자동으로 위아래로 쌓입니다. */
+       
+    .section-header-simple h2 { font-size: 24px; }
+    .card { padding: 32px 24px; }
 }

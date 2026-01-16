@@ -2,73 +2,147 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>서상준 | Developer</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- 네비게이션 -->
     <nav class="nav">
-        <a href="#intro">소개</a>
-        <a href="#interest">관심사</a>
-        <a href="#goal">목표</a>
-        <a href="#contact">연락처</a>
-        <button id="darkModeBtn">다크모드</button>
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#intro">소개</a>
+                <a href="#interest">관심사</a>
+                <a href="#goal">목표</a>
+                <a href="#contact">연락처</a>
+                <a href="#experience">경험</a>
+            </div>
+            <button id="darkModeBtn" class="dark-mode-btn" aria-label="다크모드 전환">
+                🌙
+            </button>
+        </div>
     </nav>
 
-    <div class="container">
+    <main class="container">
 
-        <!-- 소개 -->
-        <section class="card intro" id="intro">
-            <img src="profile.jpg" class="profile-image" alt="프로필 사진">
-
+        <section class="card intro-card" id="intro">
+            <div class="profile-image-wrapper">
+                <img src="profile.jpg" alt="서상준 프로필" class="profile-image" onerror="this.style.display='none'; this.parentNode.classList.add('no-img');">
+            </div>
             <h1>서상준</h1>
             <p class="subtitle">매일 발전하는 개발자</p>
 
-            <button class="toggle-btn" onclick="toggleIntro()">
-                소개 더 보기
-            </button>
+            <div class="profile-badges">
+                <span class="badge major">🎓 컴퓨터공학 전공</span>
+            </div>
 
-            <p id="introDetail" class="hidden">
-                문제를 깊이 이해하고, 사용자에게 실제로 도움이 되는
-                소프트웨어를 만드는 개발자를 목표로 성장하고 있습니다.
-            </p>
-        </section>
+            <div class="intro-content">
+                <p class="summary-text">
+                    사용자 경험을 중요하게 생각하는 웹 개발자입니다.<br>
+                    운동과 코딩을 병행하며 끈기 있게 성장합니다.
+                </p>
+                
+                <button class="toggle-btn" onclick="toggleIntro()">
+                    더 알아보기 <span id="arrow">▼</span>
+                </button>
 
-        <!-- 관심사 -->
-        <section class="card" id="interest">
-            <h2>관심사</h2>
-            <div class="interest-list">
-                <span class="interest-tag">운동</span>
-                <span class="interest-tag">수영</span>
-                <span class="interest-tag">영화</span>
+                <div id="introDetail" class="detail-text hidden">
+                    <p>
+                        문제를 깊이 이해하고, 사용자에게 실제로 도움이 되는 소프트웨어를 만드는 것을 목표로 합니다.
+                        단순한 기능 구현을 넘어 코드의 가독성과 유지보수성을 고민하며 개발하고 있습니다.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- 목표 -->
+        <section class="card experience-card" id="experience">
+            <div class="section-header-simple">
+                <span class="header-icon">💼</span>
+                <h2>Experience</h2>
+            </div>
+
+            <div class="simple-list">
+                <div class="list-item">
+                    <h3 class="item-title">영상처리 인턴</h3>
+                    <p class="item-date">2025.09.01 ~ 2025.12.31</p>
+                    <p class="item-desc">데이터 처리 및 분석 실무 경험</p>
+                </div>
+
+                <div class="list-item">
+                    <h3 class="item-title">학생 창업 도전</h3>
+                    <p class="item-date">2025.02.27 ~ 2025.06.20</p>
+                    <p class="item-desc">서비스 기획 및 런칭 주도</p>
+                </div>
+
+                <div class="list-item">
+                    <h3 class="item-title">해외 교환학생</h3>
+                    <p class="item-date">2024.08.12 ~ 2024.12.13</p>
+                    <p class="item-desc">글로벌 커뮤니케이션 역량 강화</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" id="interest">
+            <div class="card-header">
+                <span class="emoji">👀</span>
+                <h2>Interest</h2>
+            </div>
+            
+            <div class="interest-list">
+                <div class="interest-item">
+                    <span class="tag-icon">📖</span>
+                    <span class="tag-text">독서</span>
+                </div>
+                <div class="interest-item">
+                    <span class="tag-icon">🏊‍♂️</span>
+                    <span class="tag-text">수영</span>
+                </div>
+                <div class="interest-item">
+                    <span class="tag-icon">🎬</span>
+                    <span class="tag-text">영화</span>
+                </div>
+            </div>
+        </section>
+
         <section class="card" id="goal">
-            <h2>목표</h2>
-            <p class="goal-text">
-                3개월 안에 백준 플래티넘 달성하기
-            </p>
+            <div class="card-header">
+                <span class="emoji">🚀</span>
+                <h2>Goal</h2>
+            </div>
+            <div class="goal-box">
+                <p class="goal-title">알고리즘 마스터</p>
+                <p class="goal-desc">
+                    3개월 안에 <strong>백준(Baekjoon) 플래티넘</strong> 달성하기
+                </p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
         </section>
 
-        <!-- 연락처 -->
         <section class="card" id="contact">
-            <h2>연락처</h2>
-            <p>
-                📧 이메일 :
-                <a href="ssjjnn01@gmail.com">example@email.com</a>
-            </p>
-            <p>
-                💻 GitHub :
-                <a href="https://github.com/20SSJ" target="_blank">
-                    github.com/yourgithub
+            <div class="card-header">
+                <span class="emoji">📬</span>
+                <h2>Contact</h2>
+            </div>
+            <div class="contact-links">
+                <a href="mailto:ssjjnn01@gmail.com" class="contact-item">
+                    <span class="label">Email</span>
+                    <span class="value">ssjjnn01@gmail.com</span>
                 </a>
-            </p>
+                <a href="https://github.com/20SSJ" target="_blank" class="contact-item">
+                    <span class="label">GitHub</span>
+                    <span class="value">github.com/20SSJ</span>
+                </a>
+            </div>
         </section>
 
-    </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Seo Sang Jun. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
