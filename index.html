@@ -6,6 +6,7 @@
     <title>서상준 | Developer</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/favicon.ico">
 </head>
 <body>
 
@@ -13,10 +14,10 @@
         <div class="nav-container">
             <div class="nav-links">
                 <a href="#intro">소개</a>
+                <a href="#experience">경험</a>
                 <a href="#interest">관심사</a>
                 <a href="#goal">목표</a>
                 <a href="#contact">연락처</a>
-                <a href="#experience">경험</a>
             </div>
             <button id="darkModeBtn" class="dark-mode-btn" aria-label="다크모드 전환">
                 🌙
@@ -30,29 +31,68 @@
             <div class="profile-image-wrapper">
                 <img src="profile.jpg" alt="서상준 프로필" class="profile-image" onerror="this.style.display='none'; this.parentNode.classList.add('no-img');">
             </div>
-            <h1>서상준</h1>
+            <h1>서상준(2001.08.22)</h1>
             <p class="subtitle">매일 발전하는 개발자</p>
-
+<!-- 
             <div class="profile-badges">
                 <span class="badge major">🎓 컴퓨터공학 전공</span>
-            </div>
+            </div> -->
 
             <div class="intro-content">
                 <p class="summary-text">
-                    사용자 경험을 중요하게 생각하는 웹 개발자입니다.<br>
-                    운동과 코딩을 병행하며 끈기 있게 성장합니다.
+                    데이터 기반 분석과 빠른 적응력을 바탕으로<br> 글로벌 협업이 가능한 개발자입니다.
                 </p>
-                
-                <button class="toggle-btn" onclick="toggleIntro()">
-                    더 알아보기 <span id="arrow">▼</span>
-                </button>
+                </div>
+        </section>
 
-                <div id="introDetail" class="detail-text hidden">
-                    <p>
-                        문제를 깊이 이해하고, 사용자에게 실제로 도움이 되는 소프트웨어를 만드는 것을 목표로 합니다.
-                        단순한 기능 구현을 넘어 코드의 가독성과 유지보수성을 고민하며 개발하고 있습니다.
+        
+        <section class="card education-card" id="education">
+            <div class="section-header-simple">
+                <span class="header-icon">🎓</span>
+                <h2>Education</h2>
+            </div>
+
+            <div class="simple-list">
+                <div class="list-item">
+                    <h3 class="item-title">가천대학교</h3>
+                    <p class="item-date">2020.03 ~ 2026.02 (졸업예정)</p>
+                    <p class="item-desc">
+                        컴퓨터공학 전공 / 창업 부전공<br>
+                        학점 3.7 / 4.5
                     </p>
                 </div>
+                
+                <div class="list-item">
+                    <h3 class="item-title">설화고등학교</h3>
+                    <p class="item-date">2017.03 ~ 2020.02</p>
+                    <p class="item-desc">이과 계열 졸업</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card skill-card" id="skills">
+            <div class="section-header-simple">
+                <span class="header-icon">🛠️</span>
+                <h2>Skills & Certs</h2>
+            </div>
+
+            <div class="skill-group">
+                <h3 class="group-title">Languages & Tools</h3>
+                <div class="tag-container">
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">MFC</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <h3 class="group-title">Certifications</h3>
+                <ul class="cert-list">
+                    <li>네트워크관리사 2급 (ICQA)</li>
+                    <li>TOEIC Speaking IH</li>
+                    <li>운전면허 2종 보통</li>
+                </ul>
             </div>
         </section>
 
@@ -64,21 +104,68 @@
 
             <div class="simple-list">
                 <div class="list-item">
-                    <h3 class="item-title">영상처리 인턴</h3>
-                    <p class="item-date">2025.09.01 ~ 2025.12.31</p>
-                    <p class="item-desc">데이터 처리 및 분석 실무 경험</p>
+                    <h3 class="item-title">하이비젼시스템 (인턴)</h3>
+                    <p class="item-date">2025.09 ~ 2025.12</p>
+                    <p class="item-desc">
+                        • MFC 기반 C++ 영상처리 애플리케이션 개발<br>
+                        • 결함 탐지 알고리즘 구현 및 기능 단위 테스트 수행<br>
+                        • AOI 검사 장비 데이터셋 구축 및 성능 최적화
+                    </p>
                 </div>
 
                 <div class="list-item">
-                    <h3 class="item-title">학생 창업 도전</h3>
-                    <p class="item-date">2025.02.27 ~ 2025.06.20</p>
-                    <p class="item-desc">서비스 기획 및 런칭 주도</p>
+                    <h3 class="item-title">University of Guam (교환학생)</h3>
+                    <p class="item-date">2024.08 ~ 2024.12</p>
+                    <p class="item-desc">
+                        • 글로벌 프로젝트 협업 및 영어 커뮤니케이션 역량 강화<br>
+                        • 컴퓨터 공학 전공 심화 학습
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" id="projects">
+            <div class="section-header-simple">
+                <span class="header-icon">🚀</span>
+                <h2>Projects</h2>
+            </div>
+
+            <div class="project-grid">
+                
+                <div class="list-item">
+                    <h3 class="item-title">공강매칭서비스 Hippo (팀장)</h3>
+                    <p class="item-date">2025.02 ~ 2025.06</p>
+                    <p class="item-desc">
+                        • 대학생 공강 매칭 플랫폼 MVP 개발 및 운영<br>
+                        • Python, Streamlit, 카카오톡 API 연동
+                    </p>
                 </div>
 
                 <div class="list-item">
-                    <h3 class="item-title">해외 교환학생</h3>
-                    <p class="item-date">2024.08.12 ~ 2024.12.13</p>
-                    <p class="item-desc">글로벌 커뮤니케이션 역량 강화</p>
+                    <h3 class="item-title">교내 팀 매칭 플랫폼 (해커톤 2위)</h3>
+                    <p class="item-date">2025.06 (3일)</p>
+                    <p class="item-desc">
+                        • 대학생 프로젝트 팀 빌딩 서비스 기획<br>
+                        • 크롤링 및 데이터 분석을 통한 니즈 도출
+                    </p>
+                </div>
+
+                <div class="list-item">
+                    <h3 class="item-title">Conure (교내 해커톤 4위)</h3>
+                    <p class="item-date">2024.06 (3일)</p>
+                    <p class="item-desc">
+                        • 상처 이미지 분석 AI 서비스 개발<br>
+                        • OpenAI GPT API 프롬프트 엔지니어링
+                    </p>
+                </div>
+
+                <div class="list-item">
+                    <h3 class="item-title">심판다 (교내 공모전 3위)</h3>
+                    <p class="item-date">2023.04 ~ 2023.07</p>
+                    <p class="item-desc">
+                        • 자취방 매칭 플랫폼 백엔드 개발<br>
+                        • FastAPI 서버 구축 및 ERD 설계
+                    </p>
                 </div>
             </div>
         </section>
@@ -103,9 +190,9 @@
                     <span class="tag-text">영화</span>
                 </div>
             </div>
-        </section>
+            </section>
 
-        <section class="card" id="goal">
+            <section class="card" id="goal">
             <div class="card-header">
                 <span class="emoji">🚀</span>
                 <h2>Goal</h2>
@@ -113,28 +200,37 @@
             <div class="goal-box">
                 <p class="goal-title">알고리즘 마스터</p>
                 <p class="goal-desc">
-                    3개월 안에 <strong>백준(Baekjoon) 플래티넘</strong> 달성하기
+                    3개월 안에 <strong>백준(BOJ) 플래티넘</strong> 달성
                 </p>
                 <div class="progress-bar">
                     <div class="progress-fill"></div>
                 </div>
             </div>
         </section>
-
+        
         <section class="card" id="contact">
             <div class="card-header">
                 <span class="emoji">📬</span>
                 <h2>Contact</h2>
             </div>
             <div class="contact-links">
-                <a href="mailto:ssjjnn01@gmail.com" class="contact-item">
+                <!-- <a href="mailto:ssjjnn01@gmail.com" class="contact-item">
                     <span class="label">Email</span>
                     <span class="value">ssjjnn01@gmail.com</span>
-                </a>
+                </a> -->
                 <a href="https://github.com/20SSJ" target="_blank" class="contact-item">
                     <span class="label">GitHub</span>
                     <span class="value">github.com/20SSJ</span>
                 </a>
+                <a href="https://velog.io/@ssj01/posts" target="_blank" class="contact-item">
+                    <span class="label">Velog</span>
+                    <span class="value">velog.io/@ssj01</span>
+                </a>
+                <a href="https://www.linkedin.com/in/sangjun-seo-206j/" target="_blank" class="contact-item">
+                    <span class="label">linkedin</span>
+                    <span class="value">in/sangjun-seo-206j</span>
+                </a>
+
             </div>
         </section>
 

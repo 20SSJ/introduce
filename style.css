@@ -269,11 +269,106 @@ h2 { font-size: 20px; color: var(--point-color); }
 
 .footer { text-align: center; padding: 40px 0; color: var(--text-sub); font-size: 14px; }
 
-/* 📱 모바일 반응형 처리 */
+/* ✨ Education & Skills 섹션 스타일 ✨ */
+
+/* 스킬 태그 스타일 */
+.skill-group {
+    margin-bottom: 24px;
+}
+
+.group-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-sub);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-main);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+body.dark .skill-tag {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.skill-tag:hover {
+    background-color: var(--point-color);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* 자격증 리스트 스타일 */
+.cert-list {
+    list-style: none;
+    padding: 0;
+}
+
+.cert-list li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 8px;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.cert-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--point-color);
+}
+
+/* 선택사항: 경험 카드가 너무 길어지면 내부 스크롤 생김 */
+.experience-card .simple-list {
+    max-height: 500px; /* 원하는 높이 설정 */
+    overflow-y: auto;
+    padding-right: 10px; /* 스크롤바 여백 */
+}
+
+/* 프로젝트 섹션은 가로로 꽉 차게 배치 */
+#projects {
+    grid-column: span 2;
+}
+
+/* 프로젝트 리스트를 2열 그리드로 예쁘게 정렬 */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 내부 2단 분리 */
+    gap: 32px; /* 좌우 간격 */
+    row-gap: 32px; /* 위아래 간격 */
+}
+
+/* 반응형 처리: 모바일에서 순서 정렬 */
 @media (max-width: 768px) {
-    /* 모바일에서는 메인 컨테이너가 1줄로 바뀌므로
-       별도의 설정 없이 자동으로 위아래로 쌓입니다. */
-       
+    /* 모바일에서는 Education과 Skills도 한 줄로 쌓임 */
     .section-header-simple h2 { font-size: 24px; }
     .card { padding: 32px 24px; }
+    #education, #skills {
+        grid-column: auto;
+    }
+    /* 모바일에서는 프로젝트 섹션도 1열로 변경 */
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    /* 기존 그리드 시스템에 따라 span 2가 무시되거나 auto로 작동하지만,
+       확실하게 하기 위해 명시 */
+    #projects {
+        grid-column: auto;
+    }
 }
